@@ -1,13 +1,20 @@
-with open('input.txt', 'r') as f:
-    data = f.read().splitlines()
+def load_data():
+    with open('input.txt', 'r') as f:
+        return [int(line.strip()) for line in f]
 
-data = [int(x) for x in data]
+def part_1(data):
+    prev = None
+    increases = 0
+    for reading in data:
+        if prev == None:
+            ...
+        elif reading > prev:
+            increases += 1
+        prev = reading
+    return increases
 
-prev = data[0]
-increases = 0
-for reading in data[1:]:
-    if reading > prev:
-        increases += 1
-    prev = reading
+def part_1_zip(data):
+    return sum([x < y for x, y in zip(data, data[1:])])
 
-print(f"Total increases: {increases}")
+print(f"Total increases: {part_1(load_data())}")
+print(f"Total increases: {part_1_zip(load_data())}")
