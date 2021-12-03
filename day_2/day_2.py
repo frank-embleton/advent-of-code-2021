@@ -15,6 +15,7 @@ def part_1(data):
 
 print(f'Part 1: {part_1(load_data())}')
 
+
 def part_2(data):
     a, h, d = 0, 0, 0
     for direction, value in data:
